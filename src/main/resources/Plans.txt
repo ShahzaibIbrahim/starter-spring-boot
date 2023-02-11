@@ -1,0 +1,7 @@
+
+
+1. Add AOP Logging
+2. Exception Handling on Global level
+3. Add properties in application.properties file
+4. Check if roles can be inserted into properties file or db
+5. Implement Spring Email Generator with email logging
