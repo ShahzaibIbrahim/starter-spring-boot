@@ -1,6 +1,7 @@
 package com.shah.starter.service.impl;
 
 import com.shah.starter.filter.AuthoritiesLoggingAfterFilter;
+import com.shah.starter.model.Authority;
 import com.shah.starter.model.User;
 import com.shah.starter.repository.UserRepository;
 import com.shah.starter.service.UserService;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -35,14 +37,8 @@ public class UserServiceImpl implements UserService {
             String hashPwd = passwordEncoder.encode(user.getPassword());
             user.setPassword(hashPwd);
             user.setCreateDt(String.valueOf(new Date(System.currentTimeMillis())));
+
             savedCustomer = userRepository.save(user);
-
-
-           /* Set<Authority> authorities = user.getAuthorities();
-            authorities.forEach(x -> {
-                x.setUser(user);
-                authorityRepository.save(x);
-            });*/
         } catch (Exception ex) {
             LOG.log(Level.SEVERE, "Error in registering user");
             throw ex;

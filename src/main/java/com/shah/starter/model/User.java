@@ -26,7 +26,7 @@ public class User {
     @Column(name = "create_date")
     private String createDt;
 
-    @OneToMany(mappedBy="user",fetch=FetchType.EAGER)
+    @OneToMany(mappedBy="user",fetch=FetchType.EAGER, cascade = CascadeType.PERSIST)
     private Set<Authority> authorities;
 
     public int getId() {
@@ -66,6 +66,9 @@ public class User {
     }
 
     public void setAuthorities(Set<Authority> authorities) {
+        authorities.forEach(x -> {
+            x.setUser(this);
+        });
         this.authorities = authorities;
     }
 }
