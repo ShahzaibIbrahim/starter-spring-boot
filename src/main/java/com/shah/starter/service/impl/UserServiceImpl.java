@@ -1,7 +1,5 @@
 package com.shah.starter.service.impl;
 
-import com.shah.starter.filter.AuthoritiesLoggingAfterFilter;
-import com.shah.starter.model.Authority;
 import com.shah.starter.model.User;
 import com.shah.starter.repository.UserRepository;
 import com.shah.starter.service.UserService;
@@ -13,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Date;
 import java.util.List;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
