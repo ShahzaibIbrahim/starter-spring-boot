@@ -16,4 +16,14 @@ public class ExampleController {
     public String unSecuredController() {
         return "this is not secured controller";
     }
+
+    @GetMapping("/exception")
+    public String exceptionController() throws Exception {
+
+        if(true) {
+            throw new Exception("Exception controller called");
+        }
+
+        return "this is not exception controller";
+    }
 }
